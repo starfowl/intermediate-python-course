@@ -1,12 +1,19 @@
 def main():
     import random
-    dice_rolls = 2
+    dice_rolls = int(input('How many dice would you like to roll? '))
+    dice_size = int(input('How many sides would you like? '))
     dice_sum = 0
-    for i in range(0,dice_rolls):
-      roll = random.randint(1, 6)
-      dice_sum += roll
-      print(f'You rolled a {roll}')
-    print(f'you rolled a total of {dice_sum}')
+    for i in range(0, dice_rolls):
+        roll = random.randint(1, dice_size)
+        dice_sum += roll
+        if roll == 1:
+            print(f'You rolled a {roll}! Critical fail!')
+        elif roll == dice_size:
+            print(f'You rolled a {roll}! Critical success!')
+        else:
+            print(f'You rolled a {roll}!')
+    print(f'You rolled a total of {dice_sum}')
+
 
 if __name__ == "__main__":
     main()
